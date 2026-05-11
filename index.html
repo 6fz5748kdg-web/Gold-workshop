@@ -4,181 +4,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold in deinen Knochen – 8-Wochen Online-Workshop</title>
+<title>Gold in deinen Knochen – 8-Wochen Online-Workshop mit Doris</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --rust: #C13B1B;
-    --gold: #C49A3C;
-    --gold-light: #E8C96A;
-    --cream: #F5EFE0;
-    --warm-dark: #2A1F12;
-    --warm-mid: #6B4E2A;
-    --bone: #EDE3CC;
-    --mexican-pink: #E4007C;
-    --mexican-pink-light: #FF3DAA;
-  }
-
-- { margin: 0; padding: 0; box-sizing: border-box; }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+:root {
+–rust: #C13B1B;
+–gold: #C49A3C;
+–gold-light: #E8C96A;
+–cream: #F5EFE0;
+–dark: #2A1F12;
+–mid: #6B4E2A;
+–bone: #EDE3CC;
+–pink: #E4007C;
+–pink-light: #FF3DAA;
+}
+
 body {
-background: var(–cream);
-color: var(–warm-dark);
+background: var(–dark);
+color: var(–cream);
 font-family: ‘DM Sans’, sans-serif;
 overflow-x: hidden;
 }
 
+/* ── GOLD LINE ── */
+.gold-line {
+height: 2px;
+background: linear-gradient(90deg, transparent, var(–gold), var(–gold-light), var(–gold), transparent);
+}
+
 /* ── HERO ── */
 .hero {
-min-height: 100vh;
-display: grid;
-grid-template-columns: 1fr 1fr;
 position: relative;
-overflow: hidden;
-}
-
-.hero::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background:
-radial-gradient(ellipse 60% 80% at 20% 30%, rgba(196,154,60,0.18) 0%, transparent 60%),
-radial-gradient(ellipse 40% 60% at 80% 80%, rgba(193,59,27,0.10) 0%, transparent 55%);
-pointer-events: none;
-z-index: 0;
-}
-
-/* Marble texture strokes */
-.hero::after {
-content: ‘’;
-position: absolute;
-top: -10%;
-right: -5%;
-width: 55%;
-height: 70%;
-background: linear-gradient(135deg,
-rgba(100,160,140,0.25) 0%,
-rgba(196,154,60,0.30) 30%,
-rgba(240,230,200,0.10) 60%,
-transparent 100%);
-border-radius: 30% 70% 60% 40% / 40% 30% 70% 60%;
-filter: blur(2px);
-pointer-events: none;
-z-index: 0;
-}
-
-.hero-left {
-padding: 80px 60px 80px 80px;
+min-height: 100vh;
 display: flex;
 flex-direction: column;
-justify-content: center;
-position: relative;
-z-index: 2;
-}
-
-.hero-right {
-position: relative;
-z-index: 1;
-display: flex;
-align-items: flex-end;
-justify-content: center;
+justify-content: flex-end;
 overflow: hidden;
-}
-
-.hero-image-container {
-position: relative;
-width: 100%;
-height: 100%;
 }
 
 .hero-img {
+position: absolute;
+inset: 0;
 width: 100%;
 height: 100%;
 object-fit: cover;
 object-position: center top;
-opacity: 0.92;
 }
 
-.hero-img-overlay {
+.hero-overlay {
 position: absolute;
 inset: 0;
-background: linear-gradient(90deg, var(–cream) 0%, transparent 25%);
+background: linear-gradient(
+to bottom,
+rgba(42,31,18,0.15) 0%,
+rgba(42,31,18,0.3) 40%,
+rgba(42,31,18,0.92) 75%,
+rgba(42,31,18,1) 100%
+);
 }
 
-.pretag {
-font-family: ‘DM Sans’, sans-serif;
+.hero-content {
+position: relative;
+z-index: 2;
+padding: 40px 28px 56px;
+}
+
+.hero-tag {
 font-size: 11px;
 font-weight: 500;
-letter-spacing: 0.25em;
+letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–rust);
-margin-bottom: 24px;
-opacity: 0;
-animation: fadeUp 0.8s 0.1s forwards;
+color: var(–gold);
+margin-bottom: 16px;
+display: block;
 }
 
 .hero-title {
 font-family: ‘Playfair Display’, serif;
 font-weight: 900;
-font-size: clamp(52px, 7vw, 96px);
-line-height: 1;
+font-size: clamp(48px, 14vw, 80px);
+line-height: 0.95;
 color: var(–rust);
-letter-spacing: -0.02em;
-margin-bottom: 28px;
-margin-top: -8px;
-opacity: 0;
-animation: fadeUp 0.9s 0.2s forwards;
-}
-
-.hero-title span {
-display: block;
-margin-bottom: -4px;
+margin-bottom: 20px;
 }
 
 .hero-subtitle {
 font-family: ‘Lora’, serif;
-font-size: clamp(18px, 2vw, 24px);
+font-size: clamp(17px, 4vw, 22px);
 font-style: italic;
-color: var(–warm-mid);
-line-height: 1.5;
-margin-bottom: 40px;
-max-width: 380px;
-opacity: 0;
-animation: fadeUp 0.9s 0.35s forwards;
+color: var(–cream);
+margin-bottom: 8px;
 }
 
-.hero-meta {
+.hero-subtitle span { color: var(–pink-light); }
+
+.hero-pills {
 display: flex;
-gap: 24px;
 flex-wrap: wrap;
-margin-bottom: 48px;
-opacity: 0;
-animation: fadeUp 0.9s 0.5s forwards;
-}
-
-.meta-pill {
-display: flex;
-align-items: center;
 gap: 8px;
-background: rgba(196,154,60,0.12);
-border: 1px solid rgba(196,154,60,0.35);
+margin: 24px 0 32px;
+}
+
+.hero-pill {
+background: rgba(196,154,60,0.15);
+border: 1px solid rgba(196,154,60,0.4);
 border-radius: 100px;
-padding: 8px 18px;
+padding: 7px 16px;
 font-size: 13px;
-font-weight: 500;
-color: var(–warm-mid);
+color: var(–gold-light);
 }
 
-.meta-pill svg { color: var(–rust); flex-shrink: 0; }
-
-.hero-cta {
-opacity: 0;
-animation: fadeUp 0.9s 0.65s forwards;
-}
-
-.btn-primary {
+.btn {
 display: inline-block;
 background: var(–rust);
 color: #fff;
@@ -187,31 +126,23 @@ font-size: 15px;
 font-weight: 500;
 letter-spacing: 0.05em;
 text-transform: uppercase;
-padding: 18px 40px;
+padding: 16px 36px;
 border-radius: 4px;
 text-decoration: none;
-cursor: pointer;
 border: none;
-transition: background 0.25s, transform 0.2s;
+cursor: pointer;
+transition: background 0.2s, transform 0.2s;
 }
-
-.btn-primary:hover { background: #a32f14; transform: translateY(-2px); }
-
-/* ── GOLD DIVIDER ── */
-.gold-line {
-height: 3px;
-background: linear-gradient(90deg, transparent, var(–gold), var(–gold-light), var(–gold), transparent);
+.btn:hover { background: #a32f14; transform: translateY(-2px); }
+.btn-gold {
+background: var(–gold);
+color: var(–dark);
 }
+.btn-gold:hover { background: var(–gold-light); }
 
-/* ── ABOUT ── */
-.about {
-padding: 100px 80px;
-max-width: 1200px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 1fr 1.2fr;
-gap: 80px;
-align-items: center;
+/* ── SECTIONS ── */
+.section {
+padding: 72px 28px;
 }
 
 .section-label {
@@ -220,972 +151,601 @@ font-weight: 500;
 letter-spacing: 0.3em;
 text-transform: uppercase;
 color: var(–gold);
-margin-bottom: 20px;
+margin-bottom: 16px;
+display: block;
 }
 
-.about h2 {
+.section-title {
 font-family: ‘Playfair Display’, serif;
-font-size: clamp(32px, 4vw, 52px);
+font-size: clamp(28px, 7vw, 44px);
 font-weight: 700;
 line-height: 1.15;
-color: var(–warm-dark);
-margin-bottom: 28px;
+margin-bottom: 24px;
 }
 
-.about h2 em {
-color: var(–rust);
-font-style: italic;
-}
+/* ── ABOUT WORKSHOP ── */
+.about { background: var(–dark); }
+.about .section-title { color: var(–gold-light); }
+.about .section-title em { color: var(–pink-light); font-style: italic; }
 
-.about-text p {
+.about p {
 font-family: ‘Lora’, serif;
-font-size: 17px;
-line-height: 1.8;
-color: #4a3520;
-margin-bottom: 20px;
+font-size: 16px;
+line-height: 1.85;
+color: rgba(245,239,224,0.82);
+margin-bottom: 16px;
 }
 
-.about-text p strong {
-color: var(–rust);
-font-weight: 500;
-}
+.about p strong { color: var(–gold-light); }
+.about p em { color: var(–pink-light); font-style: normal; }
 
-.bone-quote {
-background: linear-gradient(135deg, rgba(196,154,60,0.08), rgba(193,59,27,0.06));
+.quote-block {
 border-left: 3px solid var(–gold);
-padding: 28px 32px;
+padding: 20px 24px;
+margin: 28px 0;
+background: rgba(196,154,60,0.06);
 border-radius: 0 8px 8px 0;
-margin-top: 8px;
 }
 
-.bone-quote p {
+.quote-block p {
 font-family: ‘Playfair Display’, serif;
-font-size: 19px;
+font-size: 18px;
 font-style: italic;
-line-height: 1.6;
-color: var(–warm-dark);
+color: var(–cream);
 margin: 0;
 }
 
-/* ── WHAT YOU GET ── */
-.what {
-background: var(–warm-dark);
-padding: 100px 80px;
-color: var(–cream);
-position: relative;
-overflow: hidden;
-}
-
-.what::before {
-content: ‘🦴’;
-position: absolute;
-font-size: 300px;
-opacity: 0.04;
-top: -60px;
-right: -40px;
-line-height: 1;
-pointer-events: none;
-}
-
-.what-inner {
-max-width: 1200px;
-margin: 0 auto;
-}
-
-.what h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(32px, 4vw, 52px);
-font-weight: 700;
-color: var(–gold-light);
-margin-bottom: 60px;
-line-height: 1.15;
-}
+/* ── WHAT ── */
+.what { background: #1e1509; }
+.what .section-title { color: var(–gold-light); }
 
 .pillars {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 32px;
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-top: 8px;
 }
 
 .pillar {
 background: rgba(255,255,255,0.04);
 border: 1px solid rgba(196,154,60,0.2);
 border-radius: 12px;
-padding: 36px;
-transition: border-color 0.3s, background 0.3s;
+padding: 24px;
 }
 
-.pillar:hover {
-background: rgba(196,154,60,0.07);
-border-color: rgba(196,154,60,0.45);
-}
-
-.pillar-icon {
-font-size: 28px;
-margin-bottom: 16px;
-display: block;
-}
+.pillar-icon { font-size: 24px; margin-bottom: 10px; display: block; }
 
 .pillar h3 {
 font-family: ‘Playfair Display’, serif;
-font-size: 21px;
-font-weight: 700;
+font-size: 18px;
 color: var(–gold-light);
-margin-bottom: 12px;
-line-height: 1.25;
+margin-bottom: 8px;
 }
 
 .pillar p {
 font-family: ‘Lora’, serif;
-font-size: 15px;
+font-size: 14px;
 line-height: 1.75;
-color: rgba(245,239,224,0.72);
+color: rgba(245,239,224,0.7);
 }
 
 /* ── FORMAT ── */
-.format {
-padding: 100px 80px;
-max-width: 1200px;
-margin: 0 auto;
-}
-
-.format h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(32px, 4vw, 48px);
-font-weight: 700;
-color: var(–warm-dark);
-margin-bottom: 48px;
-text-align: center;
-}
+.format { background: var(–dark); }
+.format .section-title { color: var(–gold-light); }
 
 .format-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 2px;
-background: rgba(196,154,60,0.2);
-border-radius: 12px;
-overflow: hidden;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-bottom: 40px;
 }
 
 .format-item {
-background: var(–cream);
-padding: 40px 28px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(196,154,60,0.2);
+border-radius: 10px;
+padding: 20px 16px;
 text-align: center;
 }
 
-.format-item .icon {
-font-size: 32px;
-margin-bottom: 16px;
-display: block;
-}
+.format-item .icon { font-size: 26px; display: block; margin-bottom: 8px; }
+.format-item strong { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(–gold); margin-bottom: 4px; }
+.format-item span { font-family: ‘Lora’, serif; font-size: 14px; color: rgba(245,239,224,0.75); }
 
-.format-item strong {
-display: block;
+.schedule-title {
 font-family: ‘Playfair Display’, serif;
-font-size: 15px;
-color: var(–rust);
-margin-bottom: 8px;
-text-transform: uppercase;
-letter-spacing: 0.1em;
-}
-
-.format-item span {
-font-family: ‘Lora’, serif;
-font-size: 16px;
-color: var(–warm-mid);
-line-height: 1.5;
-}
-
-/* ── PRICING ── */
-.pricing {
-background: linear-gradient(160deg, #1a120a 0%, var(–warm-dark) 100%);
-padding: 100px 80px;
-color: var(–cream);
-}
-
-.pricing-inner {
-max-width: 960px;
-margin: 0 auto;
-text-align: center;
-}
-
-.pricing h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(32px, 4vw, 52px);
-font-weight: 700;
+font-size: 20px;
 color: var(–gold-light);
 margin-bottom: 16px;
 }
 
+.schedule-list {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.schedule-item {
+display: flex;
+align-items: center;
+gap: 16px;
+background: rgba(255,255,255,0.04);
+border-left: 3px solid var(–gold);
+border-radius: 0 8px 8px 0;
+padding: 12px 16px;
+}
+
+.schedule-item.pause {
+border-left-color: rgba(196,154,60,0.25);
+opacity: 0.5;
+}
+
+.s-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 18px;
+font-weight: 900;
+color: var(–rust);
+min-width: 20px;
+}
+
+.pause .s-num { color: rgba(196,154,60,0.4); }
+
+.s-date {
+font-weight: 500;
+font-size: 15px;
+color: var(–cream);
+flex: 1;
+}
+
+.s-time {
+font-size: 12px;
+color: var(–gold);
+}
+
+/* ── PRICING ── */
+.pricing { background: #1e1509; }
+.pricing .section-title { color: var(–gold-light); }
+.pricing .section-title em { color: var(–pink-light); font-style: italic; }
+
 .pricing-sub {
 font-family: ‘Lora’, serif;
 font-style: italic;
-font-size: 19px;
-color: rgba(245,239,224,0.65);
-margin-bottom: 64px;
+font-size: 16px;
+color: rgba(245,239,224,0.6);
+margin-bottom: 32px;
 }
 
-.pricing-cards {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 28px;
-margin-bottom: 48px;
+.price-cards {
+display: flex;
+flex-direction: column;
+gap: 20px;
 }
 
 .price-card {
+background: rgba(255,255,255,0.04);
 border: 1px solid rgba(196,154,60,0.25);
 border-radius: 16px;
-padding: 48px 40px;
-background: rgba(255,255,255,0.04);
-text-align: left;
+padding: 32px 24px;
 position: relative;
-transition: transform 0.3s, border-color 0.3s;
-}
-
-.price-card:hover {
-transform: translateY(-4px);
-border-color: rgba(196,154,60,0.5);
 }
 
 .price-card.featured {
 border-color: var(–gold);
-background: rgba(196,154,60,0.08);
+background: rgba(196,154,60,0.07);
 }
 
 .featured-badge {
 position: absolute;
-top: -14px;
+top: -13px;
 left: 50%;
 transform: translateX(-50%);
 background: var(–gold);
-color: var(–warm-dark);
+color: var(–dark);
 font-size: 11px;
 font-weight: 700;
-letter-spacing: 0.2em;
+letter-spacing: 0.15em;
 text-transform: uppercase;
-padding: 6px 20px;
+padding: 5px 18px;
 border-radius: 100px;
 white-space: nowrap;
 }
 
 .price-label {
-font-size: 12px;
-font-weight: 500;
-letter-spacing: 0.25em;
+font-size: 11px;
+letter-spacing: 0.2em;
 text-transform: uppercase;
 color: var(–gold);
-margin-bottom: 16px;
+margin-bottom: 8px;
 }
 
 .price-card h3 {
 font-family: ‘Playfair Display’, serif;
-font-size: 24px;
-font-weight: 700;
+font-size: 22px;
 color: var(–cream);
 margin-bottom: 12px;
-line-height: 1.2;
 }
 
 .price-amount {
 font-family: ‘Playfair Display’, serif;
-font-size: 56px;
+font-size: 52px;
 font-weight: 900;
 color: var(–gold-light);
 line-height: 1;
 margin-bottom: 8px;
 }
 
-.price-amount sup {
-font-size: 28px;
-vertical-align: top;
-margin-top: 8px;
-}
+.price-amount sup { font-size: 24px; vertical-align: top; margin-top: 8px; }
 
 .price-note {
 font-family: ‘Lora’, serif;
-font-size: 14px;
+font-size: 13px;
 font-style: italic;
-color: rgba(245,239,224,0.55);
-margin-bottom: 28px;
-line-height: 1.5;
+color: rgba(245,239,224,0.5);
+margin-bottom: 20px;
+line-height: 1.6;
 }
 
-.price-card ul {
+.price-features {
 list-style: none;
-margin-bottom: 36px;
+margin-bottom: 28px;
 }
 
-.price-card ul li {
-font-family: ‘DM Sans’, sans-serif;
+.price-features li {
 font-size: 14px;
 color: rgba(245,239,224,0.8);
 padding: 8px 0;
 border-bottom: 1px solid rgba(255,255,255,0.06);
 display: flex;
 gap: 10px;
-align-items: flex-start;
 }
 
-.price-card ul li:last-child { border-bottom: none; }
+.price-features li:last-child { border-bottom: none; }
+.check { color: var(–gold); }
 
-.check { color: var(–gold); flex-shrink: 0; font-size: 16px; }
-
-.paypal-btn {
+.tally-btn {
 display: block;
 width: 100%;
 text-align: center;
-background: #0070BA;
+background: var(–rust);
 color: #fff;
 font-family: ‘DM Sans’, sans-serif;
 font-size: 15px;
 font-weight: 500;
-padding: 16px 24px;
+padding: 16px;
 border-radius: 8px;
 text-decoration: none;
-cursor: pointer;
-border: none;
-transition: background 0.25s, transform 0.2s;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
+transition: background 0.2s;
 }
-
-.paypal-btn:hover { background: #005a96; transform: translateY(-2px); }
-
-.paypal-logo {
-font-family: ‘Trebuchet MS’, sans-serif;
-font-weight: 700;
-font-size: 17px;
-letter-spacing: -0.5px;
-}
-
-.paypal-logo .pay { color: #fff; }
-.paypal-logo .pal { color: #9fd8f3; }
+.tally-btn:hover { background: #a32f14; }
 
 .pricing-note {
 font-family: ‘Lora’, serif;
-font-size: 14px;
+font-size: 13px;
 font-style: italic;
-color: rgba(245,239,224,0.45);
-line-height: 1.7;
-}
-
-/* ── CLOSING ── */
-.closing {
-padding: 120px 80px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.closing::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,154,60,0.10) 0%, transparent 70%);
-pointer-events: none;
-}
-
-.closing h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(28px, 4vw, 52px);
-font-weight: 900;
-font-style: italic;
-color: var(–rust);
-line-height: 1.2;
-margin-bottom: 24px;
-position: relative;
-}
-
-.closing p {
-font-family: ‘Lora’, serif;
-font-size: 19px;
-color: var(–warm-mid);
-line-height: 1.7;
-max-width: 560px;
-margin: 0 auto 48px;
-position: relative;
-}
-
-.closing .btn-primary { position: relative; }
-
-/* ── FOOTER ── */
-footer {
-background: var(–warm-dark);
 color: rgba(245,239,224,0.4);
 text-align: center;
-padding: 40px;
-font-size: 13px;
-font-family: ‘DM Sans’, sans-serif;
-line-height: 1.8;
+margin-top: 24px;
+line-height: 1.7;
 }
 
-footer a { color: rgba(196,154,60,0.7); text-decoration: none; }
-footer a:hover { color: var(–gold); }
+/* ── TRADING ── */
+.trading { background: var(–dark); }
+.trading .section-title { color: var(–gold-light); }
+.trading .section-title em { color: var(–pink-light); font-style: italic; }
 
-/* ── MEXICAN PINK ACCENTS ── */
-.pink { color: var(–mexican-pink); }
-.pink-glow {
-color: var(–mexican-pink);
-text-shadow: 0 0 30px rgba(228,0,124,0.3);
-}
-
-/* ── ABOUT DORIS ── */
-.about-doris {
-background: var(–bone);
-padding: 100px 80px;
-position: relative;
-overflow: hidden;
-}
-
-.about-doris::before {
-content: ‘’;
-position: absolute;
-top: -80px; right: -80px;
-width: 400px; height: 400px;
-background: radial-gradient(circle, rgba(228,0,124,0.08) 0%, transparent 70%);
-pointer-events: none;
-}
-
-.about-doris-inner {
-max-width: 1200px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 1fr 1.4fr;
-gap: 80px;
-align-items: center;
-}
-
-.doris-photos {
-position: relative;
-height: 520px;
-}
-
-.doris-photo-main {
-position: absolute;
-top: 0; left: 0;
-width: 78%;
-height: 88%;
-object-fit: cover;
-object-position: center top;
-border-radius: 16px;
-box-shadow: 8px 8px 40px rgba(42,31,18,0.25);
-}
-
-.doris-photo-accent {
-position: absolute;
-bottom: 0; right: 0;
-width: 52%;
-height: 52%;
-object-fit: cover;
-border-radius: 50%;
-border: 5px solid var(–cream);
-box-shadow: 4px 4px 24px rgba(228,0,124,0.2);
-}
-
-.doris-text .section-label { margin-bottom: 16px; }
-
-.doris-text h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(28px, 3.5vw, 46px);
-font-weight: 700;
-line-height: 1.15;
-color: var(–warm-dark);
-margin-bottom: 8px;
-}
-
-.doris-text h2 .name {
-color: var(–mexican-pink);
-font-style: italic;
-}
-
-.doris-decade {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 13px;
-font-weight: 500;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 28px;
-}
-
-.doris-text p {
+.trading p {
 font-family: ‘Lora’, serif;
-font-size: 17px;
+font-size: 15px;
 line-height: 1.85;
-color: #4a3520;
+color: rgba(245,239,224,0.8);
+margin-bottom: 14px;
+}
+
+.trading p strong { color: var(–gold-light); }
+
+.trading-pills {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin: 20px 0;
+}
+
+.tp-pill {
+background: rgba(196,154,60,0.12);
+border: 1px solid rgba(196,154,60,0.3);
+border-radius: 100px;
+padding: 7px 16px;
+font-size: 13px;
+color: var(–gold-light);
+}
+
+.trading-contact {
+font-size: 14px;
+color: rgba(245,239,224,0.5);
 margin-bottom: 20px;
 }
 
-.doris-text p strong {
-color: var(–mexican-pink);
-font-weight: 500;
+.trading-contact a { color: var(–pink-light); text-decoration: none; }
+
+.disclaimer {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 8px;
+padding: 16px 20px;
+font-size: 12px;
+line-height: 1.7;
+color: rgba(245,239,224,0.35);
 }
 
-.doris-text p em {
-color: var(–rust);
-}
+.disclaimer strong { color: rgba(245,239,224,0.5); }
 
-/* ── TESTIMONIALS ── */
-.testimonials {
-padding: 100px 80px;
-background: var(–cream);
-}
+/* ── DORIS ── */
+.doris { background: #1e1509; }
 
-.testimonials-inner {
-max-width: 1200px;
-margin: 0 auto;
-}
-
-.testimonials h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(28px, 3.5vw, 46px);
-font-weight: 700;
-color: var(–warm-dark);
-margin-bottom: 8px;
-text-align: center;
-}
-
-.testimonials h2 em {
-color: var(–mexican-pink);
-font-style: italic;
-}
-
-.testimonials-sub {
-font-family: ‘Lora’, serif;
-font-style: italic;
-font-size: 17px;
-color: var(–warm-mid);
-text-align: center;
-margin-bottom: 64px;
-}
-
-.testi-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 28px;
-}
-
-.testi-card {
-background: #fff;
+.doris-photo {
+width: 100%;
+max-width: 340px;
 border-radius: 16px;
-padding: 36px 32px;
-position: relative;
-box-shadow: 0 4px 24px rgba(42,31,18,0.07);
-border-top: 3px solid transparent;
-transition: transform 0.3s, box-shadow 0.3s;
+display: block;
+margin: 0 auto 32px;
+box-shadow: 0 8px 40px rgba(0,0,0,0.4);
 }
 
-.testi-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 12px 36px rgba(42,31,18,0.12);
-}
+.doris .section-title { color: var(–gold-light); }
+.doris .section-title .name { color: var(–pink-light); font-style: italic; }
 
-.testi-card:nth-child(1) { border-top-color: var(–rust); }
-.testi-card:nth-child(2) { border-top-color: var(–mexican-pink); }
-.testi-card:nth-child(3) { border-top-color: var(–gold); }
-
-.testi-quote {
-font-size: 48px;
-line-height: 1;
-color: var(–bone);
-font-family: ‘Playfair Display’, serif;
-font-weight: 900;
-margin-bottom: 4px;
+.doris-sub {
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 20px;
 display: block;
 }
 
-.testi-card:nth-child(2) .testi-quote { color: rgba(228,0,124,0.15); }
+.doris p {
+font-family: ‘Lora’, serif;
+font-size: 15px;
+line-height: 1.85;
+color: rgba(245,239,224,0.8);
+margin-bottom: 16px;
+}
+
+.doris p strong { color: var(–pink-light); font-weight: 500; }
+.doris p em { color: var(–gold-light); font-style: italic; }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(–dark); }
+.testimonials .section-title { color: var(–gold-light); }
+.testimonials .section-title em { color: var(–pink-light); font-style: italic; }
+
+.testi-sub {
+font-family: ‘Lora’, serif;
+font-style: italic;
+font-size: 15px;
+color: rgba(245,239,224,0.5);
+margin-bottom: 32px;
+}
+
+.testi-list {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.testi-card {
+background: rgba(255,255,255,0.04);
+border-radius: 12px;
+padding: 24px;
+border-top: 3px solid var(–rust);
+}
+
+.testi-card:nth-child(2) { border-top-color: var(–pink); }
+.testi-card:nth-child(3) { border-top-color: var(–gold); }
+.testi-card:nth-child(4) { border-top-color: var(–pink); }
+.testi-card:nth-child(5) { border-top-color: var(–rust); }
+.testi-card:nth-child(6) { border-top-color: var(–gold); }
+.testi-card:nth-child(7) { border-top-color: var(–pink); }
+
+.testi-quote {
+font-family: ‘Playfair Display’, serif;
+font-size: 40px;
+color: rgba(196,154,60,0.2);
+line-height: 1;
+display: block;
+margin-bottom: 4px;
+}
 
 .testi-text {
 font-family: ‘Lora’, serif;
 font-size: 15px;
 font-style: italic;
 line-height: 1.8;
-color: #4a3520;
-margin-bottom: 24px;
-}
-
-.testi-name {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 13px;
-font-weight: 500;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(–warm-mid);
-}
-
-.testi-role {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 12px;
-color: rgba(107,78,42,0.6);
-margin-top: 2px;
-}
-
-/* PINK highlights in hero */
-.hero-title .pink-word { color: var(–mexican-pink); }
-
-/* ── SCHEDULE ── */
-.schedule-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 12px;
-max-width: 720px;
-margin: 0 auto;
-}
-
-.schedule-item {
-background: #fff;
-border-radius: 10px;
-padding: 16px 20px;
-display: flex;
-align-items: center;
-gap: 14px;
-box-shadow: 0 2px 12px rgba(42,31,18,0.06);
-border-left: 3px solid var(–gold);
-}
-
-.schedule-item.schedule-pause {
-border-left-color: rgba(107,78,42,0.25);
-background: rgba(107,78,42,0.04);
-}
-
-.s-num {
-font-family: ‘Playfair Display’, serif;
-font-size: 20px;
-font-weight: 900;
-color: var(–rust);
-min-width: 24px;
-text-align: center;
-}
-
-.schedule-pause .s-num { color: rgba(107,78,42,0.35); }
-
-.s-date {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 15px;
-font-weight: 600;
-color: var(–warm-dark);
-flex: 1;
-}
-
-.s-time {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 12px;
-color: var(–warm-mid);
-white-space: nowrap;
-}
-
-.schedule-pause .s-date { color: rgba(107,78,42,0.5); }
-.schedule-pause .s-time { color: rgba(107,78,42,0.4); }
-
-@media (max-width: 700px) {
-.schedule-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 480px) {
-.schedule-grid { grid-template-columns: 1fr; }
-}
-
-/* ── TRADING EXPLAINER (compact) ── */
-.trading-explainer {
-padding: 80px 80px;
-background: var(–warm-dark) !important;
-color: var(–cream);
-}
-
-.trading-inner {
-max-width: 800px;
-margin: 0 auto;
-}
-
-.trading-inner .section-label { color: var(–gold); }
-
-.trading-inner h2 {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(26px, 3vw, 40px);
-font-weight: 700;
-color: var(–gold-light);
-line-height: 1.2;
-margin-bottom: 24px;
-}
-
-.trading-inner h2 em { color: var(–mexican-pink-light); font-style: italic; }
-
-.trading-inner p {
-font-family: ‘Lora’, serif;
-font-size: 16px;
-line-height: 1.85;
-color: rgba(245,239,224,0.8);
+color: rgba(245,239,224,0.82);
 margin-bottom: 16px;
 }
 
-.trading-inner p strong { color: var(–gold-light); font-weight: 600; }
-
-.trading-pills {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin: 24px 0;
-}
-
-.tp-pill {
-background: rgba(196,154,60,0.15);
-border: 1px solid rgba(196,154,60,0.35);
-border-radius: 100px;
-padding: 8px 18px;
-font-family: ‘DM Sans’, sans-serif;
+.testi-name {
 font-size: 13px;
 font-weight: 500;
-color: var(–gold-light);
-}
-
-.trading-contact {
-font-family: ‘DM Sans’, sans-serif;
-font-size: 14px;
-color: rgba(245,239,224,0.55);
-margin-bottom: 24px;
-}
-
-.trading-contact a {
-color: var(–mexican-pink-light);
-text-decoration: none;
-font-weight: 500;
-}
-
-.trading-contact a:hover { text-decoration: underline; }
-
-.trading-disclaimer {
-background: rgba(255,255,255,0.04);
-border: 1px solid rgba(255,255,255,0.1);
-border-radius: 8px;
-padding: 20px 24px;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 12px;
-line-height: 1.7;
-color: rgba(245,239,224,0.38);
-}
-
-.trading-disclaimer strong { color: rgba(245,239,224,0.55); }
-
-/* ── FAQ (dark, matching what-section) ── */
-.faq {
-padding: 100px 80px;
-background: var(–warm-dark);
-position: relative;
-overflow: hidden;
-}
-
-.faq::before {
-content: ‘?’;
-position: absolute;
-font-family: ‘Playfair Display’, serif;
-font-size: 400px;
-font-weight: 900;
-opacity: 0.03;
-top: -60px;
-right: -20px;
-line-height: 1;
+letter-spacing: 0.12em;
+text-transform: uppercase;
 color: var(–gold);
-pointer-events: none;
 }
 
-.faq-inner { max-width: 960px; margin: 0 auto; position: relative; }
+.testi-role {
+font-size: 12px;
+color: rgba(245,239,224,0.4);
+margin-top: 2px;
+}
 
-.faq-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 24px;
+/* ── FAQ ── */
+.faq { background: #1e1509; }
+.faq .section-title { color: var(–gold-light); }
+.faq .section-title em { color: var(–pink-light); font-style: italic; }
+
+.faq-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
 }
 
 .faq-item {
 background: rgba(255,255,255,0.04);
 border: 1px solid rgba(196,154,60,0.2);
-border-radius: 12px;
-padding: 32px;
-transition: border-color 0.3s, background 0.3s;
-}
-
-.faq-item:hover {
-background: rgba(196,154,60,0.07);
-border-color: rgba(196,154,60,0.4);
+border-radius: 10px;
+padding: 22px 20px;
 }
 
 .faq-q {
 font-family: ‘Playfair Display’, serif;
-font-size: 17px;
+font-size: 16px;
 font-weight: 700;
 color: var(–gold-light);
-margin-bottom: 12px;
+margin-bottom: 10px;
 line-height: 1.35;
 }
 
 .faq-a {
 font-family: ‘Lora’, serif;
-font-size: 15px;
+font-size: 14px;
 line-height: 1.8;
 color: rgba(245,239,224,0.7);
 }
 
-.faq-a em { color: var(–mexican-pink-light); font-style: italic; }
-
-@media (max-width: 900px) {
-.about-doris { padding: 72px 32px; }
-.about-doris-inner { grid-template-columns: 1fr; gap: 48px; }
-.doris-photos { height: 380px; }
-.testimonials { padding: 72px 32px; }
-.testi-grid { grid-template-columns: 1fr; }
-.trading-explainer { padding: 64px 32px; }
-.faq { padding: 72px 32px; }
-.faq-grid { grid-template-columns: 1fr; }
+/* ── CLOSING ── */
+.closing {
+background: var(–dark);
+padding: 72px 28px;
+text-align: center;
 }
 
-@media (max-width: 560px) {
-.about-doris { padding-left: 24px; padding-right: 24px; }
-.testimonials { padding-left: 24px; padding-right: 24px; }
-.trading-explainer { padding-left: 24px; padding-right: 24px; }
-.faq { padding-left: 24px; padding-right: 24px; }
-.trading-pills { gap: 8px; }
+.closing h2 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(26px, 7vw, 44px);
+font-weight: 900;
+font-style: italic;
+color: var(–rust);
+line-height: 1.2;
+margin-bottom: 12px;
 }
 
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(24px); }
-to   { opacity: 1; transform: translateY(0); }
+.closing h2 span { color: var(–pink-light); }
+
+.closing p {
+font-family: ‘Lora’, serif;
+font-size: 16px;
+color: rgba(245,239,224,0.65);
+margin-bottom: 32px;
+line-height: 1.7;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-.hero {
-grid-template-columns: 1fr;
-min-height: auto;
-}
-.hero-right {
-height: 55vw;
-min-height: 280px;
-}
-.hero-img-overlay {
-background: linear-gradient(180deg, var(–cream) 0%, transparent 20%);
-}
-.hero-left { padding: 60px 32px 48px; }
-.about { grid-template-columns: 1fr; gap: 48px; padding: 72px 32px; }
-.what { padding: 72px 32px; }
-.pillars { grid-template-columns: 1fr; }
-.format { padding: 72px 32px; }
-.format-grid { grid-template-columns: 1fr 1fr; }
-.pricing { padding: 72px 32px; }
-.pricing-cards { grid-template-columns: 1fr; }
-.closing { padding: 80px 32px; }
+/* ── FOOTER ── */
+footer {
+background: #150f07;
+padding: 32px 28px;
+text-align: center;
+font-size: 13px;
+color: rgba(245,239,224,0.3);
+line-height: 1.8;
 }
 
-@media (max-width: 560px) {
-.hero-left { padding: 48px 24px 40px; }
-.format-grid { grid-template-columns: 1fr; }
-.about, .what, .format, .pricing, .closing { padding-left: 24px; padding-right: 24px; }
+footer a { color: rgba(196,154,60,0.6); text-decoration: none; }
+footer strong { color: rgba(245,239,224,0.5); }
+
+/* ── DESKTOP ── */
+@media (min-width: 768px) {
+.section { padding: 96px 80px; }
+.hero-content { padding: 60px 80px 80px; max-width: 660px; }
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.format-grid { grid-template-columns: repeat(4, 1fr); }
+.price-cards { flex-direction: row; }
+.price-card { flex: 1; }
+.testi-list { display: grid; grid-template-columns: 1fr 1fr; }
+.faq-list { display: grid; grid-template-columns: 1fr 1fr; }
+.doris-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+.doris-photo { margin: 0; max-width: 100%; }
+.closing { padding: 96px 80px; }
 }
 </style>
 
 </head>
 <body>
 
-<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<!-- HERO -->
 
 <section class="hero">
-  <div class="hero-left">
-    <p class="pretag">8-Wochen Online-Workshop</p>
-    <h1 class="hero-title">
-      <span>Gold</span>
-      <span>in deinen</span>
-      <span>Knochen</span>
-    </h1>
-    <p class="hero-subtitle">Dein Gold wird nicht gefunden –<br><span style="color: var(--mexican-pink); font-style:italic;">es wird geführt.</span></p>
-
-```
-<div class="hero-meta">
-  <div class="meta-pill">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Start 29. Mai – jeden Freitag 11 Uhr
+  <img class="hero-img" src="Portrait-sw.JPG" alt="Doris – Gold in deinen Knochen">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">8-Wochen Online-Workshop</span>
+    <h1 class="hero-title">Gold<br>in deinen<br>Knochen</h1>
+    <p class="hero-subtitle">Dein Gold wird nicht gefunden –<br><span>es wird geführt.</span></p>
+    <div class="hero-pills">
+      <span class="hero-pill">🗓️ Start 29. Mai</span>
+      <span class="hero-pill">🦴 8 Wochen</span>
+      <span class="hero-pill">📹 Freitags 11 Uhr</span>
+    </div>
+    <a href="#pricing" class="btn">Ich bin dabei ✨</a>
   </div>
-  <div class="meta-pill">
-    🦴 8 gemeinsame Wochen
-  </div>
-  <div class="meta-pill">
-    📹 1× pro Woche via Zoom
-  </div>
-</div>
+</section>
 
-<div class="hero-cta">
-  <a href="#pricing" class="btn-primary">Ich bin dabei ✨</a>
-</div>
-```
+<div class="gold-line"></div>
 
+<!-- ABOUT -->
+
+<section class="section about">
+  <span class="section-label">Worum geht es</span>
+  <h2 class="section-title">Reichtum, der <em>wirklich</em> getragen wird</h2>
+
+  <div class="quote-block">
+    <p>„Gold in deinen Knochen ist die logische Fortsetzung meiner Knochenarbeit. Dort wo wir bis auf die Knochen unsere Wünsche von echtem Reichtum und wirklichem Versorgtsein ernst nehmen."</p>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-image-container">
-      <img class="hero-img" src="Flyer_pdf.PNG" alt="Gold in deinen Knochen" onerror="this.style.display='none'">
-      <div class="hero-img-overlay"></div>
+  <p>Passiver Einkommensstrom ist für mich kein Luxus. Sondern eine <strong>Notwendigkeit</strong> – und die nötige Erfahrung, um wirklich an deine Knackpunkte zermürbender Leistungsstrukturen zu kommen.</p>
+  <p>Nicht, weil wir nichts mehr leisten sollen. Sondern weil ein Leben, in dem Geld ausschließlich an permanente Arbeit, Druck und Erfolg gekoppelt ist, <strong>bis auf die Knochen vom Leben entkoppelt</strong>.</p>
+  <p>Es ist ein 8-Wochen-Raum für Menschen, die spüren: <em>Ich will lernen, Geld, Freiheit und Verantwortung anders zu führen.</em></p>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- WHAT -->
+
+<section class="section what">
+  <span class="section-label">Was dich erwartet</span>
+  <h2 class="section-title">4 Säulen des Workshops</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pillar-icon">✨</span>
+      <h3>Prägungen verarbeiten</h3>
+      <p>Du erkennst welche unbewussten Glaubenssätze dein Verhältnis zu Geld formen – und beginnst sie aufzulösen.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">✨</span>
+      <h3>Reichtum ernst nehmen</h3>
+      <p>Kein Schämen, kein Kleinmachen. Du lernst deinen Wunsch nach echtem Wohlstand als legitim zu erleben.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">✨</span>
+      <h3>Neue Erfahrungen</h3>
+      <p>Du machst reale Schritte: mit Trading, mit Geld, mit dir. Das bleibt nicht Theorie – es wird gelebte Erfahrung.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">✨</span>
+      <h3>Entscheidungen, die halten</h3>
+      <p>Du triffst finanzielle Entscheidungen die zu deinem Leben passen – mit allem was dabei auftaucht.</p>
     </div>
   </div>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<!-- FORMAT -->
 
-<section class="about">
-  <div class="about-left">
-    <p class="section-label">Worum geht es</p>
-    <h2>Reichtum, der <em>wirklich</em> getragen wird</h2>
-    <div class="bone-quote">
-      <p>„Gold in deinen Knochen ist die logische Fortsetzung meiner Knochenarbeit. Dort wo wir bis auf die Knochen unsere Wünsche von echtem Reichtum und wirklichem Versorgtsein ernst nehmen."</p>
-    </div>
-  </div>
+<section class="section format">
+  <span class="section-label">Das Format</span>
+  <h2 class="section-title">8 Wochen. Real. Verbunden.</h2>
 
-  <div class="about-text">
-    <p>Passiver Einkommensstrom ist für mich kein Luxus. Sondern eine <strong>Notwendigkeit</strong> – und die nötige Erfahrung, um wirklich an deine Knackpunkte zermürbender Leistungsstrukturen zu kommen und diese nachhaltig zu verändern.</p>
-    <p>Nicht, weil wir nichts mehr leisten sollen. Sondern weil ein Leben, in dem Geld ausschließlich an permanente Arbeit, Druck und Erfolg gekoppelt ist, <strong>bis auf die Knochen vom Leben entkoppelt</strong>.</p>
-    <p>Es ist ein 8-Wochen-Raum für Menschen, die spüren: <em>Ich will lernen, Geld, Freiheit und Verantwortung anders zu führen.</em></p>
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
-<!-- ══════════════════════════════════ WHAT ══════════════════════════════════ -->
-
-<section class="what">
-  <div class="what-inner">
-    <h2>Was dich erwartet</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <span class="pillar-icon">✨</span>
-        <h3>Prägungen mit Geld verarbeiten</h3>
-        <p>Du erkennst, welche unbewussten Glaubenssätze dein Verhältnis zu Geld formen – und beginnst, sie Schritt für Schritt aufzulösen.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">✨</span>
-        <h3>Deinen Wunsch nach Reichtum ernst nehmen</h3>
-        <p>Kein Schämen, kein Kleinmachen. Du lernst, deinen Wunsch nach echtem Wohlstand als legitim und führbar zu erleben.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">✨</span>
-        <h3>Dich in neue Erfahrungen führen</h3>
-        <p>Du machst reale Schritte: mit Trading, mit Geld, mit dir. Das bleibt nicht Theorie – es wird gelebte Erfahrung.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">✨</span>
-        <h3>Finanzielle Entscheidungen, die halten</h3>
-        <p>Du triffst Entscheidungen, die zu deinem Leben passen – und lernst, mit allem was dabei auftaucht umzugehen: Kontrolle, Angst, Hoffnung, Freude.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════ FORMAT ══════════════════════════════════ -->
-
-<section class="format">
-  <p class="section-label" style="text-align:center; margin-bottom:12px;">Das Format</p>
-  <h2>8 Wochen. Real. Verbunden.</h2>
   <div class="format-grid">
     <div class="format-item">
       <span class="icon">🗓️</span>
@@ -1195,291 +755,232 @@ background: linear-gradient(180deg, var(–cream) 0%, transparent 20%);
     <div class="format-item">
       <span class="icon">🦴</span>
       <strong>Dauer</strong>
-      <span>8 gemeinsame Wochen</span>
+      <span>8 Wochen</span>
     </div>
     <div class="format-item">
       <span class="icon">📹</span>
-      <strong>Online</strong>
-      <span>Jeden Freitag, 11 Uhr via Zoom</span>
+      <strong>Zoom</strong>
+      <span>Freitags 11 Uhr</span>
     </div>
     <div class="format-item">
       <span class="icon">📍</span>
       <strong>Optional</strong>
-      <span>Live-Treffen in Leipzig</span>
+      <span>Live in Leipzig</span>
     </div>
   </div>
 
-  <div class="schedule">
-    <p class="section-label" style="text-align:center; margin-bottom:20px; margin-top:56px;">Die Termine</p>
-    <div class="schedule-grid">
-      <div class="schedule-item"><span class="s-num">1</span><span class="s-date">29. Mai</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">2</span><span class="s-date">5. Juni</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">3</span><span class="s-date">12. Juni</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">4</span><span class="s-date">19. Juni</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item schedule-pause"><span class="s-num">—</span><span class="s-date">26. Juni</span><span class="s-time">Pause 🌿</span></div>
-      <div class="schedule-item"><span class="s-num">5</span><span class="s-date">3. Juli</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">6</span><span class="s-date">10. Juli</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">7</span><span class="s-date">17. Juli</span><span class="s-time">11:00 Uhr</span></div>
-      <div class="schedule-item"><span class="s-num">8</span><span class="s-date">24. Juli</span><span class="s-time">11:00 Uhr</span></div>
-    </div>
+  <p class="schedule-title">Die Termine</p>
+  <div class="schedule-list">
+    <div class="schedule-item"><span class="s-num">1</span><span class="s-date">29. Mai</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">2</span><span class="s-date">5. Juni</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">3</span><span class="s-date">12. Juni</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">4</span><span class="s-date">19. Juni</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item pause"><span class="s-num">—</span><span class="s-date">26. Juni</span><span class="s-time">Pause 🌿</span></div>
+    <div class="schedule-item"><span class="s-num">5</span><span class="s-date">3. Juli</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">6</span><span class="s-date">10. Juli</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">7</span><span class="s-date">17. Juli</span><span class="s-time">11:00 Uhr</span></div>
+    <div class="schedule-item"><span class="s-num">8</span><span class="s-date">24. Juli</span><span class="s-time">11:00 Uhr</span></div>
   </div>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- ══════════════════════════════════ PRICING ══════════════════════════════════ -->
+<!-- PRICING -->
 
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <p class="section-label" style="color: var(--gold); letter-spacing:0.3em; text-transform:uppercase; font-size:11px; margin-bottom:16px;">Du wählst selbst</p>
-    <h2>Dein Weg in den Workshop</h2>
-    <p class="pricing-sub">Beide Wege führen dich vollständig in den 8-Wochen-Raum.</p>
+<section class="section pricing" id="pricing">
+  <span class="section-label">Du wählst selbst</span>
+  <h2 class="section-title">Dein Weg in den <em>Workshop</em></h2>
+  <p class="pricing-sub">Beide Wege führen dich vollständig in den 8-Wochen-Raum.</p>
 
-```
-<div class="pricing-cards">
-
-  <!-- OPTION A -->
-  <div class="price-card">
-    <p class="price-label">👉 Option A</p>
-    <h3>Normalpreis</h3>
-    <div class="price-amount"><sup>€</sup>444</div>
-    <p class="price-note">Einmalige Zahlung. Voller Zugang zum Workshop ab Tag 1.</p>
-    <ul>
-      <li><span class="check">✦</span> 8 Wochen Zoom-Gruppe</li>
-      <li><span class="check">✦</span> Wöchentliche Live-Sessions</li>
-      <li><span class="check">✦</span> Optionale Live-Termine Leipzig</li>
-      <li><span class="check">✦</span> Community & Austausch</li>
-    </ul>
-    <!-- 
-      PAYPAL SETUP: Ersetze DEINE@EMAIL.DE mit deiner PayPal-Adresse.
-      Den Betrag (444) und die Beschreibung kannst du anpassen.
-      Für ein PayPal Business-Konto kannst du auch eine Button-ID aus
-      deinem PayPal-Dashboard einsetzen.
-    -->
-    <a class="paypal-btn" style="background: var(--rust);"
-       href="https://tally.so/r/kdKv01"
-       target="_blank" rel="noopener">
-      ✨ Platz anfragen – Option A
-    </a>
-  </div>
-
-  <!-- OPTION B -->
-  <div class="price-card featured">
-    <div class="featured-badge">⭐ Mit Trading-Einstieg</div>
-    <p class="price-label">👉 Option B</p>
-    <h3>Workshop + Trading-Konto</h3>
-    <div class="price-amount"><sup>€</sup>222</div>
-    <p class="price-note">222 € für den Workshop <em>+</em> mind. 222 € Einzahlung auf dein eigenes Trading-Konto. Du bist ab Tag 1 an den Trading-Gewinnen beteiligt.</p>
-    <ul>
-      <li><span class="check">✦</span> Alles aus Option A</li>
-      <li><span class="check">✦</span> Echte Trading-Erfahrung ab Tag 1</li>
-      <li><span class="check">✦</span> Beteiligung an Trading-Gewinnen</li>
-      <li><span class="check">✦</span> Geld real begegnen – nicht nur denken</li>
-    </ul>
-    <a class="paypal-btn" style="background: var(--rust);"
-       href="https://tally.so/r/kdKv01"
-       target="_blank" rel="noopener">
-      ✨ Platz anfragen – Option B
-    </a>
-  </div>
-
-</div>
-
-<p class="pricing-note">
-  Nach deiner Anfrage melde ich mich persönlich bei dir – meist innerhalb von 24 Stunden. 🤍<br>
-  Zahlung per PayPal, Banküberweisung oder Crypto möglich – wir klären das gemeinsam.
-</p>
-```
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════ TRADING ══════════════════════════════════ -->
-
-<div class="gold-line"></div>
-
-<section class="trading-explainer" style="background:#2A1F12 !important; color:#F5EFE0;">
-  <div class="trading-inner">
-    <p class="section-label" style="color:#C49A3C;">Was steckt hinter Option B?</p>
-    <h2 style="color:#E8C96A;">Eine kurze Erklärung zum <em style="color:#FF3DAA;">CopyTrading</em></h2>
-    <p style="color:rgba(245,239,224,0.85);">Du eröffnest dein <strong style="color:#E8C96A;">eigenes, unabhängiges Trading-Konto</strong> – auf deinen Namen, unter deiner vollen Kontrolle. Dein Geld bleibt zu 100% deins, du überweist es nirgendwohin. Es handelt sich um vollautomatisiertes CopyTrading: Ein bewährtes System handelt in deinem Konto – du lernst dabei, dem Wachsen deines Geldes wirklich zu begegnen.</p>
-    <p style="color:rgba(245,239,224,0.85);">Keine Gebühren. Kein Abo. Und bei allen Fragen begleite ich dich persönlich durch den Einstieg.</p>
-
-```
-<div class="trading-pills">
-  <span class="tp-pill">🔐 Eigenes Konto, volle Kontrolle</span>
-  <span class="tp-pill">📈 Vollautomatisch</span>
-  <span class="tp-pill">💸 Keine Gebühren</span>
-  <span class="tp-pill">🤝 Persönliche Begleitung</span>
-</div>
-
-<div class="trading-contact">
-  Noch Fragen zum Trading? <a href="mailto:DEINE@EMAIL.DE">Schreib mir direkt →</a>
-</div>
-
-<div class="trading-disclaimer">
-  <strong>Hinweis:</strong> Ich biete keine Finanz- oder Vermögensberatung an. Die Teilnahme am CopyTrading erfolgt auf eigene Verantwortung. Trading unterliegt Marktrisiken – vergangene Gewinne sind keine Garantie für zukünftige Ergebnisse.
-</div>
-```
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════ ABOUT DORIS ══════════════════════════════════ -->
-
-<div class="gold-line"></div>
-
-<section class="about-doris">
-  <div class="about-doris-inner">
-    <div class="doris-photos">
-      <img class="doris-photo-main"
-           src="Portrait-sw.JPG"
-           alt="Doris – Gold in deinen Knochen"
-           onerror="this.style.background='#c9b49a'; this.style.display='block'">
-      <img class="doris-photo-accent"
-           src="Portrait-rund.JPG"
-           alt="Doris"
-           onerror="this.style.display='none'">
+  <div class="price-cards">
+    <div class="price-card">
+      <p class="price-label">👉 Option A</p>
+      <h3>Normalpreis</h3>
+      <div class="price-amount"><sup>€</sup>444</div>
+      <p class="price-note">Einmalige Zahlung. Voller Zugang ab Tag 1.</p>
+      <ul class="price-features">
+        <li><span class="check">✦</span> 8 Wochen Zoom-Gruppe</li>
+        <li><span class="check">✦</span> Wöchentliche Live-Sessions</li>
+        <li><span class="check">✦</span> Optional live in Leipzig</li>
+        <li><span class="check">✦</span> Community & Austausch</li>
+      </ul>
+      <a href="https://tally.so/r/kdKv01" target="_blank" class="tally-btn">✨ Platz anfragen – Option A</a>
     </div>
 
 ```
-<div class="doris-text">
-  <p class="section-label">Wer steckt dahinter</p>
-  <h2>Hi, ich bin <span class="name">Doris.</span></h2>
-  <p class="doris-decade">Seit fast einem Jahrzehnt in der Begleitung von Menschen</p>
+<div class="price-card featured">
+  <div class="featured-badge">⭐ Mit Trading</div>
+  <p class="price-label">👉 Option B</p>
+  <h3>Workshop + Trading-Konto</h3>
+  <div class="price-amount"><sup>€</sup>222</div>
+  <p class="price-note">222 € für den Workshop + mind. 222 € auf dein eigenes Trading-Konto. Du bist ab Tag 1 an den Gewinnen beteiligt.</p>
+  <ul class="price-features">
+    <li><span class="check">✦</span> Alles aus Option A</li>
+    <li><span class="check">✦</span> Echte Trading-Erfahrung</li>
+    <li><span class="check">✦</span> Beteiligung an Gewinnen</li>
+    <li><span class="check">✦</span> Persönliches Onboarding</li>
+  </ul>
+  <a href="https://tally.so/r/kdKv01" target="_blank" class="tally-btn">✨ Platz anfragen – Option B</a>
+</div>
+```
 
-  <p>Traumaprozesse, Körperarbeit, Tiefenbegleitung – das ist meine Welt. Seit fast zehn Jahren stehe ich an der Seite von Menschen in ihren verletzlichsten Momenten und begleite sie durch das, was unter der Oberfläche liegt.</p>
+  </div>
 
+  <p class="pricing-note">
+    Nach deiner Anfrage melde ich mich persönlich bei dir – meist innerhalb von 24 Stunden. 🤍<br>
+    Zahlung per PayPal, Banküberweisung oder Crypto möglich.
+  </p>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- TRADING -->
+
+<section class="section trading">
+  <span class="section-label">Was steckt hinter Option B?</span>
+  <h2 class="section-title">Kurze Erklärung zum <em>CopyTrading</em></h2>
+
+  <p>Du eröffnest dein <strong>eigenes, unabhängiges Trading-Konto</strong> – auf deinen Namen, unter deiner vollen Kontrolle. Dein Geld bleibt zu 100% deins, du überweist es nirgendwohin.</p>
+  <p>Es handelt sich um vollautomatisiertes CopyTrading: Ein bewährtes System handelt in deinem Konto. Keine Gebühren. Kein Abo. Und bei allen Fragen begleite ich dich persönlich durch den Einstieg.</p>
+
+  <div class="trading-pills">
+    <span class="tp-pill">🔐 Eigenes Konto</span>
+    <span class="tp-pill">📈 Vollautomatisch</span>
+    <span class="tp-pill">💸 Keine Gebühren</span>
+    <span class="tp-pill">🤝 Persönliche Begleitung</span>
+  </div>
+
+  <div class="trading-contact">
+    Noch Fragen? <a href="mailto:DEINE@EMAIL.DE">Schreib mir direkt →</a>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Hinweis:</strong> Ich biete keine Finanz- oder Vermögensberatung an. Die Teilnahme am CopyTrading erfolgt auf eigene Verantwortung. Trading unterliegt Marktrisiken – vergangene Gewinne sind keine Garantie für zukünftige Ergebnisse.
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- DORIS -->
+
+<section class="section doris">
+  <div class="doris-inner">
+    <img class="doris-photo" src="Portrait-rund.JPG" alt="Doris">
+    <div>
+      <span class="section-label">Wer steckt dahinter</span>
+      <h2 class="section-title">Hi, ich bin <span class="name">Doris.</span></h2>
+      <span class="doris-sub">Seit fast einem Jahrzehnt in der Begleitung von Menschen</span>
+
+```
+  <p>Traumaprozesse, Körperarbeit, Tiefenbegleitung – das ist meine Welt. Seit fast zehn Jahren stehe ich an der Seite von Menschen in ihren verletzlichsten Momenten.</p>
   <p>Und dann kam die Erkenntnis, die ich nicht mehr ignorieren konnte: <strong>99 % der Probleme meiner Klientinnen haben in ihrer Wurzel mit Geld zu tun.</strong></p>
-
-  <p>Nicht weil ein volles Konto alle Wunden heilt. Sondern weil <em>finanzielle Enge, Abhängigkeit und das Fehlen von passivem Einkommen</em> wie chronischer Nährstoffmangel wirken – still, zermürbend, tief. Sie versorgen uns nicht mit dem, was wir zum Wachsen wirklich brauchen.</p>
-
-  <p>Deshalb habe ich Geld als das integriert, was es ist: <strong>eine zentrale Komponente von Heilung, Freiheit und gelebtem Leben.</strong> Nicht als Bonus. Als Grundlage.</p>
-
-  <p><em>„Gold in deinen Knochen"</em> ist meine Einladung an dich, genau dort anzufangen.</p>
+  <p>Nicht weil ein volles Konto alle Wunden heilt. Sondern weil <em>finanzielle Enge und das Fehlen von passivem Einkommen</em> wie chronischer Nährstoffmangel wirken – still, zermürbend, tief.</p>
+  <p>Deshalb habe ich Geld als das integriert, was es ist: <strong>eine zentrale Komponente von Heilung, Freiheit und gelebtem Leben.</strong></p>
 </div>
 ```
 
   </div>
 </section>
-
-<!-- ══════════════════════════════════ TESTIMONIALS ══════════════════════════════════ -->
 
 <div class="gold-line"></div>
 
-<section class="testimonials">
-  <div class="testimonials-inner">
-    <p class="section-label" style="text-align:center; margin-bottom:12px;">Stimmen aus der Gemeinschaft</p>
-    <h2>Was sie <em>erlebt</em> haben</h2>
-    <p class="testimonials-sub">Echte Worte von Menschen aus Doris' Arbeit</p>
+<!-- TESTIMONIALS -->
 
-```
-<div class="testi-grid">
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Mit Doris habe ich meine Fülle das erste Mal wirklich spüren dürfen. Das Gefühl von „es ist alles da und ich nehme mir, was ich brauche" – unbeschreiblich und vor allem nachhaltig. Auch nach 3 Monaten spüre ich die Fülle innen und sehe, wie sie sich im Außen spiegelt.</p>
-    <p class="testi-name">Cornelia</p>
-    <p class="testi-role">1:1 Knochenarbeit</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Ich fühle mich schon allein nach einem Call als Frau viel mehr in meiner finanziellen Eigenverantwortung – und das entspannt mein Nervensystem ungemein. Und die Trading-Ergebnisse sprechen ja eh für sich!</p>
-    <p class="testi-name">Marielle</p>
-    <p class="testi-role">Call zu finanzieller Bildung für Frauen</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Ich fühle mich so stark in meinem Gold erinnert wie vielleicht noch nie. Vor allem weiß ich nun ganz klar, welche Schritte als nächstes dran sind, um meinen inneren Goldschatz in äußere materielle Fülle zu verwandeln.</p>
-    <p class="testi-name">Claudia</p>
-    <p class="testi-role">Session „Wo ist mein Gold?"</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Dank Doris' Unterstützung beim Onboarding meines Trading-Kontos fühlt es sich für mich als absoluter Neuling gar nicht so schwer an! Die Gewinne sind fantastisch und ich bin sehr dankbar, in diesem Team zu sein.</p>
-    <p class="testi-name">Claudia</p>
-    <p class="testi-role">Trading-Onboarding</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Ich bin echt begeistert über die Gewinne und die einfache Handhabung. Danke für den steten Support und die schnellen Antworten!</p>
-    <p class="testi-name">Julia</p>
-    <p class="testi-role">Trading-Teilnehmerin</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Mit 300 € gestartet – nach einem Monat schon 50 € plus. Einfach so. Doris hat mich mit Engelsgeduld durch diesen Dschungel an Möglichkeiten begleitet. Sie ist einfach da, bei allen Fragen. Ein echtes Geschenk für alle, die finanziell wachsen wollen.</p>
-    <p class="testi-name">Christian</p>
-    <p class="testi-role">Trading-Kunde</p>
-  </div>
-  <div class="testi-card">
-    <span class="testi-quote">"</span>
-    <p class="testi-text">Ich wusste, dass finanzieller Fluss möglich sein muss – aber nicht, dass ich es in diesem Leben noch erleben darf. Nach 34 Jahren im Angestelltenverhältnis darf sich finanzielle Fülle endlich leicht anfühlen. Danke, Doris!</p>
-    <p class="testi-name">Kathrin</p>
-    <p class="testi-role">Trading-Kundin</p>
-  </div>
-  <div class="testi-card" style="background: linear-gradient(135deg, rgba(228,0,124,0.04), rgba(196,154,60,0.06)); border-top-color: var(--mexican-pink);">
-    <span class="testi-quote" style="color: rgba(228,0,124,0.15);">"</span>
-    <p class="testi-text" style="font-style:normal; color: var(--warm-mid);">Du willst wissen, wie es sich anfühlt? Dann bist du in diesem Raum genau richtig.</p>
-    <p class="testi-name" style="color: var(--mexican-pink);">✨ Dein Platz wartet</p>
-    <p class="testi-role"><a href="#pricing" style="color: var(--rust); text-decoration:none; font-weight:500;">→ Jetzt einsteigen</a></p>
-  </div>
-</div>
-```
+<section class="section testimonials">
+  <span class="section-label">Stimmen</span>
+  <h2 class="section-title">Was sie <em>erlebt</em> haben</h2>
+  <p class="testi-sub">Echte Worte von Menschen aus Doris' Arbeit</p>
 
+  <div class="testi-list">
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Mit Doris habe ich meine Fülle das erste Mal wirklich spüren dürfen. Das Gefühl von „es ist alles da" – unbeschreiblich und vor allem nachhaltig. Auch nach 3 Monaten spüre ich die Fülle innen und sehe, wie sie sich im Außen spiegelt.</p>
+      <p class="testi-name">Cornelia</p>
+      <p class="testi-role">1:1 Knochenarbeit</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Ich fühle mich als Frau viel mehr in meiner finanziellen Eigenverantwortung – und das entspannt mein Nervensystem ungemein. Und die Trading-Ergebnisse sprechen ja eh für sich!</p>
+      <p class="testi-name">Marielle</p>
+      <p class="testi-role">Call zu finanzieller Bildung</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Ich fühle mich so stark in meinem Gold erinnert wie vielleicht noch nie. Vor allem weiß ich nun klar, welche Schritte als nächstes dran sind, um meinen inneren Goldschatz in äußere materielle Fülle zu verwandeln.</p>
+      <p class="testi-name">Claudia</p>
+      <p class="testi-role">Session „Wo ist mein Gold?"</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Dank Doris' Unterstützung beim Onboarding meines Trading-Kontos fühlt es sich auch für mich als absoluter Neuling nicht schwer an! Die Gewinne sind fantastisch.</p>
+      <p class="testi-name">Claudia</p>
+      <p class="testi-role">Trading-Onboarding</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Mit 300 € gestartet – nach einem Monat schon 50 € plus. Einfach so. Doris hat mich mit Engelsgeduld begleitet. Ein echtes Geschenk für alle, die finanziell wachsen wollen.</p>
+      <p class="testi-name">Christian</p>
+      <p class="testi-role">Trading-Kunde</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Nach 34 Jahren im Angestelltenverhältnis darf sich finanzielle Fülle endlich leicht anfühlen. Danke, Doris!</p>
+      <p class="testi-name">Kathrin</p>
+      <p class="testi-role">Trading-Kundin</p>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">Ich bin echt begeistert über die Gewinne und die einfache Handhabung. Danke für den steten Support und die schnellen Antworten!</p>
+      <p class="testi-name">Julia</p>
+      <p class="testi-role">Trading-Teilnehmerin</p>
+    </div>
   </div>
 </section>
-
-<!-- ══════════════════════════════════ FAQ ══════════════════════════════════ -->
 
 <div class="gold-line"></div>
 
-<section class="faq">
-  <div class="faq-inner">
-    <p class="section-label" style="text-align:center; margin-bottom:12px; color: var(--gold);">Häufige Fragen</p>
-    <h2 style="text-align:center; font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,44px); color:var(--gold-light); margin-bottom:48px;">Noch etwas <em style="color:var(--mexican-pink-light)">offen?</em></h2>
+<!-- FAQ -->
 
-```
-<div class="faq-grid">
-  <div class="faq-item">
-    <div class="faq-q">Brauche ich Erfahrung mit Trading oder Finanzen?</div>
-    <div class="faq-a">Nein. Der Workshop ist für jeden Ausgangspunkt offen. Was zählt, ist deine Bereitschaft, dir selbst zu begegnen – nicht dein Vorwissen.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Was passiert nach meiner Buchung?</div>
-    <div class="faq-a">Du erhältst direkt eine E-Mail mit allen Details: Zoom-Links, Starttermin und – bei Option B – persönliche Begleitung durch dein Trading-Onboarding.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Kann ich auch per Banküberweisung zahlen?</div>
-    <div class="faq-a">Ja, gerne. Schreib mir einfach direkt – wir regeln das unkompliziert. Kryptowährung ist auf Anfrage ebenfalls möglich.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Für wen ist dieser Workshop <em>nicht</em>?</div>
-    <div class="faq-a">Für Menschen, die eine rein technische Finanzberatung suchen oder schnelle Gewinne ohne innere Arbeit erwarten. Hier verbinden wir beides – und das braucht Offenheit für beides.</div>
-  </div>
-</div>
-```
+<section class="section faq">
+  <span class="section-label">Häufige Fragen</span>
+  <h2 class="section-title">Noch etwas <em>offen?</em></h2>
 
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Brauche ich Erfahrung mit Trading?</div>
+      <div class="faq-a">Nein. Der Workshop ist für jeden Ausgangspunkt offen. Was zählt ist deine Bereitschaft, dir selbst zu begegnen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was passiert nach meiner Anfrage?</div>
+      <div class="faq-a">Ich melde mich persönlich bei dir – meist innerhalb von 24 Stunden. Bei Option B begleite ich dich auch durch das Trading-Onboarding.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Kann ich per Banküberweisung zahlen?</div>
+      <div class="faq-a">Ja, gerne. Wir klären das persönlich nach deiner Anfrage. Crypto ist auf Wunsch ebenfalls möglich.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Für wen ist dieser Workshop nicht?</div>
+      <div class="faq-a">Für Menschen, die reine Finanzberatung suchen oder schnelle Gewinne ohne innere Arbeit erwarten. Hier verbinden wir beides.</div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════ CLOSING ══════════════════════════════════ -->
+<div class="gold-line"></div>
+
+<!-- CLOSING -->
 
 <section class="closing">
-  <h2>Reichtum will nicht nur gewollt werden.<br><span style="color: var(--mexican-pink);">Sondern auch getragen.</span></h2>
-  <p>Du spürst, dass dieses Angebot für dich ist? Dann sichere dir jetzt deinen Platz in diesem 8-Wochen-Raum.</p>
-  <a href="https://tally.so/r/kdKv01" target="_blank" rel="noopener" class="btn-primary">✨ Meinen Platz anfragen</a>
+  <h2>Reichtum will nicht nur gewollt werden.<br><span>Sondern auch getragen.</span></h2>
+  <p>Du spürst, dass dieses Angebot für dich ist?<br>Dann meld dich – ich freue mich auf dich.</p>
+  <a href="https://tally.so/r/kdKv01" target="_blank" class="btn">✨ Meinen Platz anfragen</a>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
-
 <footer>
-  <p><strong style="color: rgba(245,239,224,0.7)">Gold in deinen Knochen</strong> &nbsp;·&nbsp; Online-Workshop</p>
-  <p style="margin-top:8px">
-    <a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a> &nbsp;·&nbsp; <a href="mailto:DEINE@EMAIL.DE">Kontakt</a>
-  </p>
-  <p style="margin-top:12px; font-size:12px;">⚜️ Dein Gold wird nicht gefunden – es wird geführt. ⚜️</p>
+  <p><strong>Gold in deinen Knochen</strong> &nbsp;·&nbsp; Online-Workshop mit Doris</p>
+  <p><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a> &nbsp;·&nbsp; <a href="https://dorisreinholz.de/agb">AGB</a> &nbsp;·&nbsp; <a href="mailto:DEINE@EMAIL.DE">Kontakt</a></p>
+  <p style="margin-top:12px; font-size:11px;">⚜️ Dein Gold wird nicht gefunden – es wird geführt. ⚜️</p>
 </footer>
 
 </body>
